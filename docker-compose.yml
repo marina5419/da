@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    container_name: college-records-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      DB_PATH: /data/college_records.sqlite3
+    volumes:
+      - sqlite_data:/data
+volumes:
+  sqlite_data:
